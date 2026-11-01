@@ -1,0 +1,25 @@
+$kind: http-request
+description: ""
+url: http://localhost:8080/api/v1/transactions/1?limit=10
+method: GET
+queryParams:
+  limit: "10"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status is 200\", () => pm.response.to.have.status(200));\r
+
+      \r
+
+      const txs = pm.response.json().transactions;\r
+
+      \r
+
+      pm.test(\"Transactions is een array binnen de limit\", () => {\r
+
+      \    pm.expect(txs).to.be.an(\"array\");\r
+
+      \    pm.expect(txs.length).to.be.at.most(10);\r
+
+      });"
+    language: text/javascript
+order: 12000

@@ -1,0 +1,36 @@
+$kind: http-request
+description: ""
+url: http://localhost:8080/api/v1/accounts
+method: GET
+headers:
+  X-User-Id: "1"
+body:
+  type: json
+  content: ""
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status is 200\", () => pm.response.to.have.status(200));\r
+
+      \r
+
+      const body = pm.response.json();\r
+
+      \r
+
+      pm.test(\"Body bevat een accounts-array\", () => {\r
+
+      \    pm.expect(body.accounts).to.be.an(\"array\");\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Gebruiker 1 heeft precies 1 rekening (Melvin)\", () => {\r
+
+      \    pm.expect(body.accounts).to.have.lengthOf(1);\r
+
+      \    pm.expect(body.accounts[0].name).to.eql(\"Rekening van Melvin\");\r
+
+      });"
+    language: text/javascript
+order: 3000

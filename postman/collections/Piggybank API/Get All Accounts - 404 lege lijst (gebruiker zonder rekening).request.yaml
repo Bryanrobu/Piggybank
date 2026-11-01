@@ -1,0 +1,16 @@
+$kind: http-request
+description: ""
+url: http://localhost:8080/api/v1/accounts
+method: GET
+headers:
+  X-User-Id: "5"
+body:
+  type: json
+  content: ""
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status is 404\", () => pm.response.to.have.status(404));\r
+
+      pm.test(\"Lijst is leeg\", () => pm.expect(pm.response.json().accounts).to.have.lengthOf(0));"
+    language: text/javascript
+order: 1000

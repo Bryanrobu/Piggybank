@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: http://localhost:8080/api/v1/accounts
+method: PUT
+body:
+  type: json
+  content: '{ "accountId": 1, "accountName": "Nieuwe naam" }'
+scripts:
+  - type: afterResponse
+    code: pm.test("Status is 200", () => pm.response.to.have.status(200));
+    language: text/javascript
+order: 8000

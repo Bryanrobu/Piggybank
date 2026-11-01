@@ -1,0 +1,13 @@
+$kind: http-request
+description: ""
+url: http://localhost:8080/api/v1/transactions
+method: POST
+body:
+  type: json
+  content: '{ "senderAccountId": 1, "receiverAccountId": 2, "description": "Test",
+    "amount": 10.00, "currency": "EURO" }'
+scripts:
+  - type: afterResponse
+    code: pm.test("Status is 200", () => pm.response.to.have.status(200));
+    language: text/javascript
+order: 15000

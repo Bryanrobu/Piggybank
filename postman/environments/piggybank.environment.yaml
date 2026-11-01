@@ -1,0 +1,11 @@
+name: Piggybank Local
+values:
+  - key: baseUrl
+    value: 'http://localhost:8080'
+    enabled: true
+  - key: userId
+    value: '1'
+    enabled: true
+  - key: accountId
+    value: '1'
+    enabled: true

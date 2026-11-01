@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: http://localhost:8080/api/v1/transactions/1?limit=-1
+method: GET
+queryParams:
+  limit: "-1"
+scripts:
+  - type: afterResponse
+    code: pm.test("Status is 500 (bekende bug bij negatieve limit)", () =>
+      pm.response.to.have.status(500));
+    language: text/javascript
+order: 10000
