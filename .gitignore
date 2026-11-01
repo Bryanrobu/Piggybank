@@ -1,0 +1,29 @@
+# === Frontend (React / Node) ===
+piggybank-frontend/node_modules/
+piggybank-frontend/build/
+piggybank-frontend/.env
+piggybank-frontend/.env.local
+piggybank-frontend/npm-debug.log*
+piggybank-frontend/yarn-debug.log*
+piggybank-frontend/yarn-error.log*
+
+# Cypress output
+piggybank-frontend/cypress/videos/
+piggybank-frontend/cypress/screenshots/
+piggybank-frontend/cypress/downloads/
+
+# === Backend (Java / Maven) ===
+piggybank-backend/target/
+piggybank-backend/.mvn/wrapper/maven-wrapper.jar
+
+# === IDE / editor ===
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# === OS ===
+.DS_Store
+Thumbs.db
